@@ -5,4 +5,5 @@
 
 #ifndef HISTORY_HPP
 #define HISTORY_HPP
+using namespace std;
 #endif
