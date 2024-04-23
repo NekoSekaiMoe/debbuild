@@ -1,11 +1,1 @@
-#!/usr/bin/make -f
-include /usr/share/dpkg/default.mk
-
-export DEB_BUILD_ARCH ?= $(shell dpkg-architecture -qDEB_BUILD_ARCH)
-export DEB_HOST_MULTIARCH ?= $(shell dpkg-architecture -qDEB_HOST_MULTIARCH)
-
-%:
-	dh $@ --parallel
-
-override_dh_auto_configure:
-	dh_auto_configure -- DEFINES+="VERSION=$(DEB_VERSION_UPSTREAM)"
+../../../tools/common/debian/rules

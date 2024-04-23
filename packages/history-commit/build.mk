@@ -1,16 +1,5 @@
 #!/bin/make -f
-
-ifneq ("$(wildcard $(LICENSE))","")
-WORKDIR = $(shell pwd)/packages/history-commit
-else
-WORKDIR = $(shell pwd)
-endif
-
-ifeq ("$(wildcard $(debian/patches))","")
-PATCH = cd source && git apply $(WORKDIR)/debian/patches/*.patch
-endif
-
-
+include ../../tools/include.mk
 build:
 	$(PATCH)
 	cd source && ln -s ../debian debian && dpkg-buildpackage -b -us -uc -d

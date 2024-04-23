@@ -1,7 +1,5 @@
-#!/usr/bin/env sh
-
 cleanup() {
-test -d source || rm -rf source
+  test -d source || rm -rf source
 }
 
 trap cleanup SIGINT

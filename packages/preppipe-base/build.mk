@@ -1,14 +1,5 @@
 #!/bin/make -f
-
-ifneq ("$(wildcard $(LICENSE))","")
-WORKDIR = $(shell pwd)/packages/preppipe-base
-else
-WORKDIR = $(shell pwd)
-endif
-
-ifeq ("$(wildcard $(debian/patches))","")
-PATCH = cd source && git apply $(WORKDIR)/debian/patches/*.patch
-endif
+include ../../tools/include.mk
 
 build:
 	git clone https://github.com/PrepPipe/preppipe-python --depth=1 $(WORKDIR)/source

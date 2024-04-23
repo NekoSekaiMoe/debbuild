@@ -1,15 +1,5 @@
 #!/bin/make -f
-
-ifneq ("$(wildcard $(LICENSE))","")
-WORKDIR = $(shell pwd)/packages/chdman
-else
-WORKDIR = $(shell pwd)
-endif
-
-ifeq ("$(wildcard $(debian/patches))","")
-PATCH = cd source && git apply $(WORKDIR)/debian/patches/*.patch
-endif
-
+include ../../tools/include.mk
 
 build:
 	git clone https://github.com/charlesthobe/chdman --depth=1 $(WORKDIR)/source
